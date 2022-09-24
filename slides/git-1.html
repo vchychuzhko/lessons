@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Git. Setup</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+
+        h3 {
+            margin-block: 0;
+        }
+
+        p.note {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body class="shower list">
+    <header class="caption">
+        <h1>Shower Presentation Engine</h1>
+        <p>Yours Truly, Famous Inc.</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2>Git. Setup</h2>
+        <p>Brought to you by <strong>Vladyslav Chychuzhko</strong></p>
+        <style>
+            #cover h2 {
+                margin: 30px 0 0;
+                text-align: center;
+                font-size: 70px;
+            }
+
+            #cover p {
+                margin: 10px 0 0;
+                text-align: center;
+                font-style: italic;
+                font-size: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Steps</h2>
+        <ol>
+            <li>Install Git</li>
+            <li>Create Github account</li>
+            <li>Generate and add SSH-key</li>
+            <li>Config local account information</li>
+            <li>You're good to go!</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>We Need</h2>
+        <ol>
+            <li>Windows PC</li>
+            <li>Installed <a href="https://git-scm.com/downloads/win" target="_blank">Git</a></li>
+            <li><a href="https://github.com/signup" target="_blank">Github account</a></li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>Generate SSH Key</h2>
+        <p><i>It is kind of computer's fingerprint that allows VCS* to identify you.</i></p>
+        <ol>
+            <li>Open "Git Bash"</li>
+            <li>Run <code>ssh-keygen</code></li>
+            <li>"Enter" to all questions</li>
+        </ol>
+        <p class="note">*<strong>Version Control System</strong> - class of systems responsible for managing changes</p>
+    </section>
+
+    <section class="slide">
+        <h2>Add SSH Key</h2>
+        <ol>
+            <li>Open "Git Bash"</li>
+            <li>Show public key with <code>cat ~/.ssh/id_rsa.pub</code> command</li>
+            <li>Add it to your Github account under "SSH-keys" section in Settings</li>
+        </ol>
+        <p>💡 Key name cannot be changed in Github after creation</p>
+    </section>
+
+    <section class="slide">
+        <h2>Local Account Configuration</h2>
+        <span>In Git Bash:</span>
+        <pre>
+            <code>git config --global user.name "<mark>Vladyslav Chychuzhko</mark>"</code>
+            <code>git config --global user.email "<mark>vladch@mail.com</mark>"</code>
+        </pre>
+        <p class="note"><i>These name and email will be used to sign your commits, pointing to the respective Github account if any.</i></p>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout" style="font-size: 100px;">
+            <span>You're good to go!</span>
+        </h2>
+    </section>
+
+    <section class="slide">
+        <h2>Useful Links</h2>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=zZBiln_2FhM" target="_blank">Git and GitHub Course for Beginners</a> (video)</li>
+            <li><a href="https://www.youtube.com/watch?v=ykyERvz17LE" target="_blank">What is GIT, GITHUB and BITBUCKET? / Plain and simple</a> (video)</li>
+            <li><a href="https://about.gitlab.com/images/press/git-cheat-sheet.pdf" target="_blank">Git cheatsheet</a></li>
+        </ul>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">
+            <span>Thank you!</span>
+        </h2>
+    </section>
+
+    <div class="progress"></div>
+
+    <script src="../assets/scripts/shower.js"></script>
+    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+
+</body>
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>HTML Pilot</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+    </style>
+</head>
+<body class="shower list">
+
+    <header class="caption">
+        <h1>Shower Presentation Engine</h1>
+        <p>Yours Truly, Famous Inc.</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2>HTML Pilot</h2>
+        <p>Brought to you by <strong>Vladyslav Chychuzhko</strong></p>
+        <style>
+            #cover h2 {
+                margin: 30px 0 0;
+                text-align: center;
+                font-size: 70px;
+            }
+
+            #cover p {
+                margin: 10px 0 0;
+                text-align: center;
+                font-style: italic;
+                font-size: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide" id="demo">
+        <h2>Goal</h2>
+        <div>
+            <span>Score: <span data-result>0</span></span>
+            <button type="button" title="Clicker" data-clicker></button>
+        </div>
+        <style>
+            #demo div {
+                align-items: center;
+                background: url('https://cdn.pixabay.com/photo/2019/01/06/16/12/samsung-3917310_960_720.png');
+                background-position: 65px center;
+                background-size: contain;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 80%;
+                row-gap: 1rem;
+            }
+            #demo button {
+                aspect-ratio: 1;
+                background: url('https://cdn.pixabay.com/photo/2020/11/28/11/25/cookie-5784367_960_720.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                border: none;
+                cursor: pointer;
+                -webkit-tap-highlight-color: transparent;
+                width: 15%;
+            }
+            #demo button:active {
+                transform: translateY(5px);
+            }
+        </style>
+        <script type="module">
+            const result = document.querySelector('[data-result]');
+            const button = document.querySelector('[data-clicker]');
+
+            let clicksCount = 0;
+
+            button.addEventListener('click', () => {
+                clicksCount = clicksCount + 1;
+
+                result.innerText = clicksCount;
+            });
+        </script>
+    </section>
+
+    <section class="slide" id="agn">
+        <h2>Agenda</h2>
+        <ol>
+            <li>The Very Beginning</li>
+            <li>
+                Functional Minimum
+                <ul>
+                    <li>Structure and styles</li>
+                    <li>JS logic</li>
+                </ul>
+            </li>
+            <li>
+                Improvements
+                <ul>
+                    <li>Add cookie image</li>
+                    <li>Add click effect</li>
+                    <li>Use class selectors</li>
+                    <li>Separate css/js files</li>
+                </ul>
+            </li>
+        </ol>
+        <style>
+            #agn ol {
+                font-size: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>We Need</h2>
+        <ol>
+            <li>Text editor</li>
+            <li>Browser</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>The Very Beginning</h2>
+        <ol>
+            <li>Create a new folder for your project</li>
+            <li>Create <code>.html</code> file in it (prefferably <code>index.html</code>)</li>
+            <li>Open it with SublimeText</li>
+            <li>Add HTML skeleton (write <code>&lt;html</code> and press <code>Tab</code>)</li>
+            <li>Write a title</li>
+            <li>Open it in browser and start writing your code!</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>Functional Minimum</h2>
+        <ol>
+            <li>Start with HTML structure</li>
+            <li>Style it!</li>
+            <li>Add some <s>magic</s> logic</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>HTML structure</h2>
+        <pre>
+            <code>&lt;body&gt;</code>
+            <code>  &lt;div&gt;</code>
+            <code>    &lt;span&gt;Score: <mark>&lt;span&gt;0&lt;span&gt;</mark>&lt;/span&gt;</code>
+            <code>    &lt;button type="button"&gt;Click&lt;/button&gt;</code>
+            <code>  &lt;/div&gt;</code>
+            <code>&lt;/body&gt;</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Page to full height</h2>
+        <pre>
+            <code>html {</code>
+            <code>  min-height: 100%;</code>
+            <code>}</code>
+            <code>body {</code>
+            <code class="mark">  margin: 0;</code>
+            <code>  min-height: 100%;</code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>How to center a div?*</h2>
+        <pre>
+            <code>div {</code>
+            <code>  align-items: center;</code>
+            <code class="mark">  display: flex;</code>
+            <code>  flex-direction: column; <span class="comment">/* to align items vertically */</span></code>
+            <code>  justify-content: center;</code>
+            <code>}</code>
+        </pre>
+        <p class="note">*center child elements inside <u>div</u> or any other element</p>
+    </section>
+
+    <!-- <section class="slide">
+        <h2>data-* attributes</h2>
+        <pre>
+            <code>&lt;span <mark>data-result</mark>&gt;0&lt;/span&gt;</code>
+            <code>...</code>
+            <code>&lt;script type="module"&gt;</code>
+            <code>  const result = document.querySelector('[<mark>data-result</mark>]');</code>
+            <code>  ...</code>
+            <code>&lt;/script&gt;</code>
+        </pre>
+    </section> -->
+
+    <section class="slide">
+        <h2>ID selector</h2>
+        <pre>
+            <code>&lt;span <mark>id="score"</mark>&gt;0&lt;/span&gt;</code>
+            <code>...</code>
+            <code>&lt;script type="module"&gt;</code>
+            <code>  const scoreResult = document.getElementById('<mark>score</mark>');</code>
+            <code>  ...</code>
+            <code>&lt;/script&gt;</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Listening to click</h2>
+        <pre>
+            <code>&lt;button type="button" id="<mark>clicker</mark>"&gt;&lt;/button&gt;</code>
+            <code>...</code>
+            <code>&lt;script type="module"&gt;</code>
+            <code>  const clickerButton = document.getElementById('clicker');</code>
+            <code>  ...</code>
+            <code class="mark">  clickerButton.addEventListener('click', () => {});</code>
+            <code>&lt;/script&gt;</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Variables</h2>
+        <pre>
+            <code>let <mark>clicksCount</mark> = 0; <span class="comment">// initial value</span></code>
+            <code> </code>
+            <code>clickerButton.addEventListener('click', () => {</code>
+            <code class="mark">  clicksCount = clicksCount + 1; <span class="comment">// increasing counter by 1</span></code>
+            <code>  ...</code>
+            <code>});</code>
+        </pre>
+    </section>
+
+    <section class="slide" id="lvc">
+        <h2>Let vs Const</h2>
+        <div class="columns two">
+            <div>
+                <h3>Let</h3>
+                <p>Variable <u>can</u> be changed</p>
+                <pre>
+                    <code><mark>let</mark> counter = 0;</code>
+                    <code>...</code>
+                    <code>counter = counter + 1;</code>
+                </pre>
+            </div>
+            <div>
+                <h3>Const</h3>
+                <p>Variable <u>cannot</u>* be changed</p>
+                <pre>
+                    <code><mark>const</mark> button = docume...;</code>
+                    <code>...</code>
+                    <code><u>button = anotherButton</u>;</code>
+                </pre>
+                <p class="note">*it's not supposed to be changed, only used</p>
+            </div>
+        </div>
+        <style>
+            #lvc h3 {
+                margin-block: 0;
+                text-align: center;
+            }
+            #lvc code u {
+                text-decoration-color: tomato;
+                text-decoration-style: wavy;
+            }
+            #lvc p.note {
+                font-size: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Output data</h2>
+        <pre>
+            <code>const <mark>scoreResult</mark> = document.getElementById('score');</code>
+            <code>...</code>
+            <code>clickerButton.addEventListener('click', () => {</code>
+            <code>  clicksCount = clicksCount + 1;</code>
+            <code> </code>
+            <code class="mark">  scoreResult.textContent = clicksCount;</code>
+            <code>});</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout">Improvements</h2>
+    </section>
+
+    <section class="slide">
+        <h2>Add cookie image</h2>
+        <pre>
+            <code>button {</code>
+            <!-- <code>  background-color: none; <span class="comment">/* disable default browser style */</span></code> -->
+            <code>  background: <mark>url('https://...')</mark>;</code>
+            <code>  background-position: center;</code>
+            <code>  background-repeat: no-repeat; <span class="comment">/* to prevent repeating */</span></code>
+            <code>  background-size: contain; <span class="comment">/* to fit inside button */</span></code>
+            <code>  ...</code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Button description</h2>
+        <pre>
+            <code>&lt;button ... <mark>title="Clicker"</mark>&gt;&lt;/button&gt;</code>
+        </pre>
+        <p>If button has no text content, it should contain <code>title</code> or <code>aria-label</code> attribute.</p>
+    </section>
+
+    <section class="slide">
+        <h2>Add click effect</h2>
+        <pre>
+            <code>button:active {</code>
+            <code class="mark">    transform: translateY(5px); <span class="comment">/* move vertically */</span></code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Use class selectors</h2>
+        <pre>
+            <code>&lt;style&gt;</code>
+            <code>  button {...}            <span class="comment">/* all buttons on page */</span></code>
+            <code>  .<mark>clicker__control</mark> {...} <span class="comment">/* only your button */</span></code>
+            <code>&lt;/style&gt;</code>
+            <code>...</code>
+            <code>&lt;button class="<mark>clicker__control</mark>" type="bu...&gt;&lt;/button&gt;</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Use class selectors</h2>
+        <pre>
+            <code>&lt;div class="<mark>clicker</mark>"&gt;</code>
+            <code>  &lt;span&gt;Score: &lt;span id="score"&gt;0&lt;span&gt;&lt;/span&gt;</code>
+            <code>  &lt;button class="<mark>clicker__control</mark>" type="bu...&gt;&lt;/button&gt;</code>
+            <code>&lt;/div&gt;</code>
+        </pre>
+        <p class="note">- BEM (Block, Element, Modifier)</p>
+    </section>
+
+    <section class="slide" id="sep">
+        <h2>Separate css/js files</h2>
+        <div class="columns two">
+            <ul>
+                <h3>CSS</h3>
+                <li>Create <code>styles.css</code> file in the same folder</li>
+                <li>Cut and paste <code>&lt;style&gt;</code> tag content to it</li>
+                <li>Add <code>&lt;link&gt;</code> with respective <u>href</u></li>
+            </ul>
+            <ul>
+                <h3>JS</h3>
+                <li>Create <code>script.js</code> file in the same folder</li>
+                <li>Cut and paste <code>&lt;script&gt;</code> tag content to it</li>
+                <li>Add <code>&lt;script&gt;</code> with respective <u>src</u></li>
+            </ul>
+        </div>
+        <style>
+            #sep div {
+                font-size: 24px;
+            }
+            #sep h3 {
+                margin-block: 0;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Separate css/js files</h2>
+        <pre>
+            <code>&lt;head&gt;</code>
+            <code>  ...</code>
+            <code class="mark">  &lt;link rel="stylesheet" href="<u>styles.css</u>"&gt;</code>
+            <code>  ...</code>
+            <code class="mark">  &lt;script type="module" src="<u>script.js</u>" defer&gt;&lt;/script&gt;</code>
+            <code>&lt;/head&gt;</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Useful Links</h2>
+        <ul>
+            <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Flexbox</a></li>
+            <!-- <li><a href="https://www.w3schools.com/tags/att_data-.asp" target="_blank">data-* attributes</a></li> -->
+            <!-- <li><a href="https://www.w3schools.com/jsref/met_element_queryselector.asp" target="_blank">querySelector()</a></li> -->
+            <li><a href="https://www.w3schools.com/jsref/met_document_getelementbyid.asp" target="_blank">getElementById()</a></li>
+            <li><a href="https://www.w3schools.com/jsref/met_element_addeventlistener.asp" target="_blank">addEventListener()</a></li>
+            <li><a href="https://www.w3schools.com/jsref/prop_node_textcontent.asp" target="_blank">textContent</a></li>
+            <li><a href="https://en.bem.info/methodology/quick-start/" target="_blank">BEM Naming Methodology</a></li>
+        </ul>
+    </section>
+
+    <section class="slide" id="end">
+        <h2 class="shout">
+            <span>Good luck!</span>
+            <a href="https://jsfiddle.net/vchychuzhko/nkvycxuj/" target="_blank">demo on JsFiddle</a>
+        </h2>
+        <style>
+            #end span {
+                display: block;
+            }
+            #end a {
+                font-size: 50px;
+            }
+        </style>
+    </section>
+
+    <div class="progress"></div>
+
+    <script src="../assets/scripts/shower.js"></script>
+    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+
+</body>
+</html>

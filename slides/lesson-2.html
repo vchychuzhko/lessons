@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Clicker. Part II</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <link rel="stylesheet" href="../assets/styles/styles.css">
+    <style>
+        .shower {
+            --slide-ratio: calc(16 / 9);
+        }
+
+        h3 {
+            margin-block: 0;
+        }
+
+        p.note {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body class="shower list">
+    <header class="caption">
+        <h1>Shower Presentation Engine</h1>
+        <p>Yours Truly, Famous Inc.</p>
+    </header>
+
+    <section class="slide" id="cover">
+        <h2>Clicker. Part II</h2>
+        <p>Brought to you by <strong>Vladyslav Chychuzhko</strong></p>
+        <style>
+            #cover h2 {
+                margin: 30px 0 0;
+                text-align: center;
+                font-size: 70px;
+            }
+
+            #cover p {
+                margin: 10px 0 0;
+                text-align: center;
+                font-style: italic;
+                font-size: 20px;
+            }
+        </style>
+    </section>
+
+    <section class="slide">
+        <h2>Agenda</h2>
+        <ol style="font-size: 20px;">
+            <li>VS Code introduction</li>
+            <li>
+                Homework
+                <ul>
+                    <li>Separating css/js files</li>
+                    <li>Setting page background</li>
+                </ul>
+            </li>
+            <li>Git introduction</li>
+            <li>
+                Improvements
+                <ul>
+                    <li>Downloading the cookie image</li>
+                    <li>Adding reset button</li>
+                </ul>
+            </li>
+            <li>Publish the project</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>We Need</h2>
+        <ol>
+            <li><a href="https://code.visualstudio.com/download" target="_blank">VS Code</a> with <a href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer#installation">Live Server</a> extension</li>
+            <li>Browser</li>
+            <li>Installed <a href="https://git-scm.com/downloads" target="_blank">Git</a></li>
+            <li><a href="https://github.com/signup" target="_blank">Github account</a></li>
+        </ol>
+        <p class="note">IDE - Integrated Development Environment</p>
+    </section>
+
+<!--     <section class="slide">
+        <h2>Why <u>VS Code</u>?</h2>
+        <ul>
+            <li>Powerful, customizable and free IDE*</li>
+            <li>Built-in <strong>Git</strong> support</li>
+            <li>Considering folder as a concrete project</li>
+            <li>Preferences that can be shared among team members</li>
+        </ul>
+        <p class="note">*Integrated Development Environment</p>
+    </section> -->
+
+    <section class="slide">
+        <h2>Start with <u>VS Code</u></h2>
+        <ol>
+            <li>Open your project folder in VS Code (or create a new one)</li>
+            <li>Create or open needed html file</li>
+            <li>Select "Open with Live Server" by the right click</li>
+            <li>Start writing your code!</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>Separate css/js files</h2>
+        <ol>
+            <li>HTML document size is reduced</li>
+            <li>Browser cache</li>
+            <li>No logic/styles/structure overlay</li>
+            <li>Reusability of components</li>
+            <li>Files organization and preprocessing</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>Separate css/js files</h2>
+        <div class="columns two" style="font-size: 24px;">
+            <ul>
+                <h3>CSS</h3>
+                <li>Create <code>styles.css</code> file</li>
+                <li>Move <code>&lt;style&gt;</code> content to it</li>
+                <li>Add <code>&lt;link&gt;</code> with respective <u>href</u></li>
+            </ul>
+            <ul>
+                <h3>JS</h3>
+                <li>Create <code>script.js</code> file</li>
+                <li>Move <code>&lt;script&gt;</code> content to it</li>
+                <li>Add <code>&lt;script&gt;</code> with respective <u>src</u></li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="slide">
+        <h2>Separate css/js files</h2>
+        <pre>
+            <code>&lt;head&gt;</code>
+            <code>  ...</code>
+            <code class="mark">  &lt;link rel="stylesheet" href="<u>css/styles.css</u>"/&gt;</code>
+            <code>  ...</code>
+            <code class="mark">  &lt;script type="module" src="<u>js/script.js</u>"&gt;&lt;/script&gt;</code>
+            <code>&lt;/head&gt;</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>💡 type="module" vs defer</h2>
+        <pre>
+            <code class="mark">&lt;script <mark>type="module"</mark> src="<u>/js/script.js</u>" <mark class="important">defer</mark>&gt;&lt;/script&gt;</code>
+        </pre>
+        <ul>
+            <li><strong>defer</strong> - <a href="https://javascript.info/script-async-defer" target="_blank">read here</a> - pospones the execution, unblocking page parsing</li>
+            <li><strong>type="module"</strong> - <a href="https://javascript.info/modules-intro" target="_blank">read here</a> - incapsulates the script, keeping variables inside</li>
+        </ul>
+        <p class="note">The <u>defer</u> attribute has no effect on module scripts — they defer by default</p>
+    </section>
+
+    <section class="slide">
+        <h2>Set page background</h2>
+        <pre>
+            <code>body {</code>
+            <code>  background-color: <mark style="background-color: #f7b658;">#f7b658</mark>;</code>
+            <code>  margin: 0; <span class="comment">/* to remove page scroll */</span></code>
+            <code>}</code>
+        </pre>
+        <p class="note">💡 You can use dev tools color-picker right in the browser</p>
+    </section>
+
+    <section class="slide">
+        <h2>Git introduction</h2>
+        <p><strong>Version Control System</strong> is a class of systems responsible for managing changes.</p>
+        <ul>
+            <li>Traks changes and "packs" them into commits</li>
+            <li>Each commit has its date and author</li>
+            <li>Codebase and all changes (commits) are stored on remote repository*</li>
+        </ul>
+        <p class="note">*remote folder to store your project</p>
+    </section>
+
+    <section class="slide">
+        <h2>Start with <u>Git</u></h2>
+        <ol>
+            <li><a href="https://git-scm.com/downloads" target="_blank">Install Git</a></li>
+            <li>Log in or sign up on <a href="https://github.com/signup" target="_blank">Github</a></li>
+            <li>Create a repository</li>
+            <li>Init local repository ("Source control" tab in VS Code)</li>
+            <li>Assign your local repository (<code>...</code> > Remote > "Add Remote")</li>
+            <li>Start making commits!</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>Download cookie image</h2>
+        <ol style="margin-bottom: 0;">
+            <li>Inspect the cookie button (right click > "Inspect")</li>
+            <li>Find style responsible for image link (<code>background-image</code>)</li>
+            <li>Open it in a new tab and download</li>
+            <li>Place image in project folder</li>
+            <li>Update your style according to new relative path*</li>
+        </ol>
+        <pre>
+            <code style="background-color: var(--color-yellow);">background-image: url('../images/cookie.png');</code>
+        </pre>
+        <p class="note">*Github Pages requires all paths to be relative</p>
+    </section>
+
+    <section class="slide">
+        <h2>Add reset button</h2>
+        <h3>Remember <u>Functional Minimum</u>?</h3>
+        <ol>
+            <li>Start with HTML structure</li>
+            <li>Style it!</li>
+            <li>Add some <s>magic</s> logic</li>
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2>Add reset button</h2>
+        <pre>
+            <code>&lt;div class="clicker"&gt;</code>
+            <code>  ...</code>
+            <code>  &lt;button class="<mark>clicker__reset</mark>" type="button" <mark>data-reset</mark>&gt;</code>
+            <code>    Reset</code>
+            <code>  &lt;/button&gt;</code>
+            <code>&lt;/div&gt;</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Add reset button styles</h2>
+        <pre>
+            <code>.clicker__reset {</code>
+            <code class="mark">  position: absolute;</code>
+            <code>  right: 10px;</code>
+            <code>  top: 10px;</code>
+            <code>}</code>
+        </pre>
+    </section>
+
+    <section class="slide">
+        <h2>Add reset button logic</h2>
+        <pre>
+            <code>const resetButton = document.querySelector('<mark>[data-reset]</mark>');</code>
+            <code>...</code>
+            <code>resetButton.addEventListener('click', () => {</code>
+            <code class="mark">  clicksCount = 0;</code>
+            <code> </code>
+            <code>  result.innerText = clicksCount;</code>
+            <code>});</code>
+        </pre>
+    </section>
+
+    <section class="slide" id="dry">
+        <h2>Keep it DRY*</h2>
+        <div class="columns two">
+            <pre>
+                <code>const <mark>setCount</mark> = (count) => {</code>
+                <code>  clicksCount = count;</code>
+                <code> </code>
+                <code>  result.innerText = count;</code>
+                <code>};</code>
+            </pre>
+            <pre>
+                <code>clickButton.addEventListener('click', () => {</code>
+                <code class="mark">  setCount(clicksCount + 1);</code>
+                <code>});</code>
+                <code> </code>
+                <code>resetButton.addEventListener('click', () => {</code>
+                <code class="mark">  setCount(0);</code>
+                <code>});</code>
+            </pre>
+        </div>
+        <p class="note">*Don't Repeat Yourself</p>
+        <style>
+            #dry pre {
+                font-size: 16px;
+            }
+            #dry pre:last-child code {
+                padding-left: 3rem;
+            }
+        </style>
+    </section>
+
+    <!-- <section class="slide">
+        <h2>💡 Why type="module"?</h2>
+        <p>This attribute incapsulates your variables and functions inside file or tag scope, so they cannot be used globally*</p>
+        <pre>
+            <code>&lt;script <mark>type="module"</mark>&gt;...&lt;/script&gt;</code>
+        </pre>
+        <p class="note">*although they can be imported, read more <a href="https://usefulangle.com/post/252/script-type-module" target="_blank">here</a></p>
+    </section> -->
+
+    <section class="slide">
+        <h2>Publish the project</h2>
+        <ol>
+            <li>Have <code>index.html</code> file in your project root</li>
+            <li>Go to your project repository page</li>
+            <li>Open "Settings" tab, then "Pages"</li>
+            <li>Select "master" (or "main") branch as target in "Source"</li>
+            <li>Save and go to <u><strong>your-account</strong>.github.io/<strong>your-repo</strong></u></li>
+        </ol>
+        <p class="note">Read more <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site" target="_blank">here</a> or watch <a href="https://www.youtube.com/watch?v=2MsN8gpT6jY" target="_blank">here</a></p>
+    </section>
+
+    <section class="slide">
+        <h2>Homework</h2>
+        <ol>
+            <li>Watch and perform steps form <a href="https://youtu.be/GrzQhlhAPL4" target="_blank">this video</a> (Git installation and setup)</li>
+            <li>Create a repository for practice (repeat this lesson steps)</li>
+            <li>Style reset button (up to your preferences)</li>
+            <li>Make a commit and push your changes</li>
+            <li>Publish the result</li>
+        </ol>
+        <!-- <p class="note">JsFiddle is also an option, but in this case you'll miss the git interaction part</p> -->
+    </section>
+
+    <!-- <section class="slide">
+        <h2>SSH Key</h2>
+        <p style="margin: 0;">It is kind of computer's fingerprint that allows VCS to recognize you.</p>
+        <div class="columns two">
+            <ol>
+                <h3>Generating</h3>
+                <li>Have git installed</li>
+                <li>Open the terminal</li>
+                <li>Run <code>ssh-keygen</code></li>
+                <li>"Enter" to all questions</li>
+            </ol>
+            <ol>
+                <h3>Applying</h3>
+                <li>Copy your key from <code>~/.ssh/id_rsa.pub</code> file</li>
+                <li>Add it to your account</li>
+            </ol>
+        </div>
+        <p class="note">Watch video instruction for Windows <a href="https://www.youtube.com/watch?v=4evR80g--9k" target="_blank">here</a></p>
+    </section> -->
+
+    <section class="slide">
+        <h2>Useful Links</h2>
+        <ul>
+            <li><a href="https://www.youtube.com/watch?v=nxCLXMBl4e4" target="_blank">VS Code setup</a> (video)</li>
+            <li><a href="https://web.dev/learn/css/color/" target="_blank">CSS colors</a></li>
+            <li><a href="https://css-tricks.com/almanac/properties/p/position/#aa-absolute" target="_blank"><code>position: absolute</code></a></li>
+            <li><a href="https://javascript.info/arrow-functions-basics" target="_blank">Arrow functions</a></li>
+            <!-- <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/:active" target="_blank">Button <code>:active</code> state</a></li> -->
+            <li><a href="https://www.youtube.com/watch?v=zZBiln_2FhM" target="_blank">Git introduction</a> (video) + <a href="https://about.gitlab.com/images/press/git-cheat-sheet.pdf" target="_blank">Git cheatsheet</a></li>
+            <li><a href="https://www.youtube.com/watch?v=84cyW2R9WWo&t=346s" target="_blank">Github Pages</a> (video)</li>
+            <li><a href="https://www.w3schools.com/css/css3_buttons.asp" target="_blank">Styling a button</a></li>
+        </ul>
+    </section>
+
+    <section class="slide" id="end">
+        <h2 class="shout">
+            <span>Good luck!</span>
+            <a href="https://github.com/vchychuzhko/clicker/" target="_blank">repo on Github</a>
+        </h2>
+        <style>
+            #end span {
+                display: block;
+            }
+            #end a {
+                font-size: 50px;
+            }
+        </style>
+    </section>
+
+    <div class="progress"></div>
+
+    <script src="../assets/scripts/shower.js"></script>
+    <!-- Copyright © 3000 Yours Truly, Famous Inc. -->
+
+</body>
+</html>
